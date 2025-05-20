@@ -46,20 +46,27 @@
   <script>
     var map = L.map('map').setView([37.8, -96], 4);
 
-  // Load CSV data
-  Papa.parse('data.csv', {
-    download: true,
-    header: true,
-    complete: function(results) {
-      results.data.forEach(function(row) {
-        if (row.LANTITUDE && row.LANTITUDE) {
-          L.marker([parseFloat(row.LANTITUDE), parseFloat(row.LONGITUDE)])
-            .addTo(map)
-            .bindPopup(row.BOROUGH || 'Unnamed Location');
-        }
-      });
-    }
-  });
+var map = L.map('map').setView([0.0, 37.0], 6); // Center to your region
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+Papa.parse('data.csv', {
+  download: true,
+  header: true,
+  complete: function(results) {
+    results.data.forEach(function(row) {
+      if (row.LATITUDE && row.LONGITUDE) {
+        L.marker([parseFloat(row.LATITUDE), parseFloat(row.LONGITUDE)])
+          .addTo(map)
+          .bindPopup(row.BOROUGH || 'Unnamed Location');
+      }
+    });
+  }
+});
+
 </script>
 
 </body>
