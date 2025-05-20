@@ -53,7 +53,7 @@
     complete: function(results) {
       results.data.forEach(function(row) {
         if (row.latitude && row.longitude) {
-          L.marker([parseFloat(row.latitude), parseFloat(row.longitude)])
+          L.marker([parseFloat(row.LANTITUDE), parseFloat(row.LONGITUDE)])
             .addTo(map)
             .bindPopup(row.name || 'Unnamed Location');
         }
