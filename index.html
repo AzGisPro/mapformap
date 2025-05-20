@@ -52,7 +52,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap'
 }).addTo(map);
 
-Papa.parse('Motor_Vehicle_Collisions_injured.csv', {
+Papa.parse('https://raw.githubusercontent.com/AzGisPro/mapformap/main/Motor_Vehicle_Collisions_injured.csv', {
   download: true,
   header: true,
   complete: function(results) {
