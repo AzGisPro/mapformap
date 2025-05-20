@@ -55,7 +55,7 @@
         if (row.LANTITUDE && row.LANTITUDE) {
           L.marker([parseFloat(row.LANTITUDE), parseFloat(row.LONGITUDE)])
             .addTo(map)
-            .bindPopup(row.name || 'Unnamed Location');
+            .bindPopup(row.BOROUGH || 'Unnamed Location');
         }
       });
     }
