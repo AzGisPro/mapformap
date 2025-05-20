@@ -44,13 +44,18 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
-  var map = L.map('map').setView([40.0, -100.0], 4);
+  // Create map centered over New York City
+  var map = L.map('map').setView([40.7, -73.9], 10);
 
+  // Add OpenStreetMap tiles
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
   }).addTo(map);
-
+  
   Papa.parse('https://raw.githubusercontent.com/AzGisPro/mapformap/main/Motor_Vehicle_Collisions_injured.csv', {
     download: true,
     header: true,
